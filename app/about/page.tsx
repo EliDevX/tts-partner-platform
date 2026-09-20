@@ -78,11 +78,11 @@ const About = ({
   ],
 }: AboutProps) => {
   return (
-    <section className={cn("py-18", className)}>
-      <div className="container mx-auto">
+    <section className={cn("py-12 md:py-18", className)}>
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <BackButton className="mb-8" />
         <div className="mb-14 flex flex-col gap-5 lg:w-2/3">
-          <h1 className="text-5xl font-semibold tracking-tighter lg:text-6xl">
+          <h1 className="text-4xl font-semibold tracking-tighter md:text-5xl lg:text-6xl">
             {title}
           </h1>
           <p className="text-base text-muted-foreground md:text-xl">
@@ -123,7 +123,7 @@ const About = ({
             />
           </div>
         </div>
-        <div className="relative overflow-hidden rounded-xl bg-muted p-7 md:p-16 mt-10">
+        <div className="relative mt-10 overflow-hidden rounded-xl bg-muted p-6 md:p-16">
           <div className="flex flex-col gap-4 text-center md:text-left">
             <h2 className="text-3xl font-medium md:text-4xl">
               {achievementsTitle}
@@ -138,7 +138,7 @@ const About = ({
                 className="flex flex-col gap-2 text-center md:text-left"
                 key={item.label + idx}
               >
-                <span className="font-mono text-4xl font-semibold md:text-5xl">
+                <span className="font-mono text-3xl font-semibold md:text-5xl">
                   {item.value}
                 </span>
                 <p className="text-sm md:text-base">{item.label}</p>
@@ -147,10 +147,12 @@ const About = ({
           </div>
         </div>
         {contentSections && contentSections.length > 0 && (
-          <div className="mx-auto grid max-w-5xl gap-16 py-28 md:grid-cols-2 md:gap-28">
+          <div className="mx-auto grid max-w-5xl gap-12 py-16 md:grid-cols-2 md:gap-28 md:py-28">
             {contentSections.map((section, idx) => (
               <div key={section.title + idx}>
-                <h2 className="mb-5 text-4xl font-medium">{section.title}</h2>
+                <h2 className="mb-5 text-3xl font-medium md:text-4xl">
+                  {section.title}
+                </h2>
                 <p className="md:text-lg text-base leading-7 whitespace-pre-line text-muted-foreground">
                   {section.content}
                 </p>

@@ -9,7 +9,7 @@ interface ServicesProps {
 const Services = ({className}: ServicesProps) => {
   return (
     <section className={cn("py-18", className)} id="services">
-      <div className="container mx-auto items-center">
+      <div className="container mx-auto items-center px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-6xl space-y-12">
           <div className="space-y-4 text-center">
             <h2 className="text-3xl font-semibold tracking-tight md:text-4xl">
@@ -22,7 +22,7 @@ const Services = ({className}: ServicesProps) => {
               <Link
                 key={index}
                 href={`/services/${service.id}`}
-                className="space-y-6 rounded-lg border border-border p-8 transition-shadow hover:shadow-sm"
+                className="space-y-5 rounded-lg border border-border p-5 transition-shadow hover:shadow-sm sm:space-y-6 sm:p-8"
               >
                 <div className="flex items-center gap-4">
                   <h3 className="md:text-xl text-base font-semibold">

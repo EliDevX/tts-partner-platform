@@ -102,7 +102,7 @@ function PolicyListItem({children}: {children: React.ReactNode}) {
 
 export default function PrivacyPage() {
   return (
-    <main className="py-24 md:py-24">
+    <main className="py-12 md:py-24">
       <div className="container mx-auto px-4 md:px-6">
         <div className="mx-auto max-w-6xl">
           <BackButton className="mb-8" />

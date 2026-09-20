@@ -44,10 +44,12 @@ export default async function AccountPage() {
       <div className="container mx-auto max-w-5xl px-4">
         <BackButton className="mb-8" />
         <div className="mb-8">
-          <h1 className="text-3xl font-semibold tracking-tight md:text-4xl">
+          <h1 className="text-2xl font-semibold tracking-tight md:text-4xl">
             账户设置
           </h1>
-          <p className="mt-2 text-muted-foreground">管理账户信息与登录安全。</p>
+          <p className="mt-2 text-sm text-muted-foreground md:text-base">
+            管理账户信息与登录安全。
+          </p>
         </div>
         <ProfileSettings {...user} hasPassword={Boolean(credentialAccount)} />
       </div>

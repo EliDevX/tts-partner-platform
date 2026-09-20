@@ -29,9 +29,9 @@ const Testimonial = ({
 }: TestimonialProps) => {
   return (
     <section className={cn("py-18", className)}>
-      <div className="container mx-auto">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col items-center text-center">
-          <p className="mb-16 max-w-4xl px-8 font-medium lg:text-3xl">
+          <p className="mb-12 max-w-4xl px-0 font-medium sm:px-8 lg:mb-16 lg:text-3xl">
             &ldquo;{quote}&rdquo;
           </p>
           <div className="flex items-center gap-2 md:gap-4">

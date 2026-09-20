@@ -92,7 +92,7 @@ export function LoginForm({className, ...props}: React.ComponentProps<"div">) {
       <Card className="overflow-hidden p-0 md:min-h-136">
         <CardContent className="grid h-full p-0 md:grid-cols-2">
           <form
-            className="flex h-full items-center p-6 md:p-10"
+            className="flex h-full items-center p-5 sm:p-6 md:p-10"
             onSubmit={handleSubmit}
             noValidate
           >
@@ -118,10 +118,10 @@ export function LoginForm({className, ...props}: React.ComponentProps<"div">) {
                 </Button>
               </div>
               <div className="flex flex-col items-center gap-2 text-center">
-                <h1 className="text-2xl font-bold">
+                <h1 className="text-xl font-bold sm:text-2xl">
                   {loginType === "admin" ? "管理员登录" : "欢迎回来"}
                 </h1>
-                <p className="text-balance text-muted-foreground">
+                <p className="text-sm text-balance text-muted-foreground">
                   {loginType === "admin"
                     ? "登录平台管理后台"
                     : "登录您的跨境服务平台账户"}
@@ -135,7 +135,7 @@ export function LoginForm({className, ...props}: React.ComponentProps<"div">) {
                   id="email"
                   type="email"
                   placeholder="请输入邮箱"
-                  className="h-10 px-3"
+                  className="h-10 px-3 text-sm"
                   autoComplete="email"
                   value={email}
                   aria-invalid={Boolean(error)}
@@ -158,7 +158,7 @@ export function LoginForm({className, ...props}: React.ComponentProps<"div">) {
                 <Input
                   id="password"
                   type="password"
-                  className="h-10 px-3"
+                  className="h-10 px-3 text-sm"
                   autoComplete="current-password"
                   value={password}
                   aria-invalid={Boolean(error)}
@@ -179,7 +179,11 @@ export function LoginForm({className, ...props}: React.ComponentProps<"div">) {
                 </div>
               )}
               <Field>
-                <Button type="submit" className="h-10" disabled={isSubmitting}>
+                <Button
+                  type="submit"
+                  className="h-10 text-sm"
+                  disabled={isSubmitting}
+                >
                   {isSubmitting && (
                     <LoaderCircle className="animate-spin" aria-hidden="true" />
                   )}

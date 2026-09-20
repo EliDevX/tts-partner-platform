@@ -234,7 +234,7 @@ const ServiceOption = ({
   return (
     <label
       htmlFor={option.id}
-      className="relative flex h-10 min-w-16 cursor-pointer items-center justify-center rounded-md border px-3 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground has-checked:bg-primary has-checked:text-primary-foreground has-disabled:pointer-events-none has-disabled:opacity-50"
+      className="relative flex min-h-10 min-w-16 max-w-full cursor-pointer items-center justify-center rounded-md border px-3 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground has-checked:bg-primary has-checked:text-primary-foreground has-disabled:pointer-events-none has-disabled:opacity-50 sm:h-10 sm:py-0"
     >
       <RadioGroupItem
         id={option.id}
@@ -242,7 +242,7 @@ const ServiceOption = ({
         value={option.id}
         disabled={disabled}
       />
-      <span>{option.name}</span>
+      <span className="break-words text-center leading-5">{option.name}</span>
       {disabled && (
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="h-px w-full rotate-45 bg-border"></div>

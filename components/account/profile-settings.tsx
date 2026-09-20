@@ -237,7 +237,7 @@ export function ProfileSettings({
           <Button
             type="button"
             variant={activeSection === "profile" ? "default" : "ghost"}
-            className="shrink-0 justify-start"
+            className="shrink-0 justify-start text-sm"
             onClick={() => setActiveSection("profile")}
           >
             <Building2 aria-hidden="true" />
@@ -247,7 +247,7 @@ export function ProfileSettings({
             <Button
               type="button"
               variant={activeSection === "security" ? "default" : "ghost"}
-              className="shrink-0 justify-start"
+              className="shrink-0 justify-start text-sm"
               onClick={() => setActiveSection("security")}
             >
               <KeyRound aria-hidden="true" />
@@ -260,16 +260,16 @@ export function ProfileSettings({
       {activeSection === "profile" ? (
         <Card>
           <CardHeader>
-            <CardTitle>账户信息</CardTitle>
+            <CardTitle className="text-xl">账户信息</CardTitle>
           </CardHeader>
           <CardContent>
             {hasBindingRisk && (
-              <div className="mb-6 flex items-start gap-3 rounded-xl border border-destructive/45 bg-destructive/10 px-4 py-2 text-sm text-destructive">
+              <div className="mb-6 flex items-start gap-3 rounded-xl border border-destructive/45 bg-destructive/10 px-3 py-2 text-sm text-destructive sm:px-4">
                 <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-background text-destructive shadow-sm">
                   <ShieldAlert className="size-4" aria-hidden="true" />
                 </span>
                 <div>
-                  <p className="font-base">建议完善登录方式</p>
+                  <p className="text-sm font-medium">建议完善登录方式</p>
                   <p className="mt-0.5 text-destructive/85 text-xs">
                     仅绑定一种登录方式时，遗失该联系方式可能无法找回账户。
                   </p>
@@ -279,30 +279,35 @@ export function ProfileSettings({
             <form onSubmit={saveProfile} noValidate>
               <FieldGroup>
                 <Field data-invalid={Boolean(profileError)}>
-                  <FieldLabel htmlFor="company-name">公司名称</FieldLabel>
+                  <FieldLabel htmlFor="company-name" className="text-sm">
+                    公司名称
+                  </FieldLabel>
                   <Input
                     id="company-name"
                     value={companyName}
                     onChange={(event) => setCompanyName(event.target.value)}
                     placeholder="请输入公司名称"
+                    className="text-sm"
                     aria-invalid={Boolean(profileError)}
                   />
                   <FieldError>{profileError}</FieldError>
                 </Field>
                 <Field>
-                  <FieldLabel htmlFor="account-email">邮箱</FieldLabel>
+                  <FieldLabel htmlFor="account-email" className="text-sm">
+                    邮箱
+                  </FieldLabel>
                   {emailBound ? (
-                    <div className="flex gap-2">
+                    <div className="flex flex-col gap-2 sm:flex-row">
                       <Input
                         id="account-email"
                         value={email}
                         readOnly
-                        className="bg-muted/40"
+                        className="bg-muted/40 text-sm"
                       />
                       <Button
                         type="button"
                         variant="outline"
-                        className="shrink-0"
+                        className="shrink-0 text-sm"
                         onClick={() => openBinding("email")}
                       >
                         更换邮箱
@@ -317,13 +322,15 @@ export function ProfileSettings({
                   )}
                 </Field>
                 <Field>
-                  <FieldLabel htmlFor="account-phone">手机号</FieldLabel>
+                  <FieldLabel htmlFor="account-phone" className="text-sm">
+                    手机号
+                  </FieldLabel>
                   {phoneBound ? (
                     <Input
                       id="account-phone"
                       value={phoneNumber ?? ""}
                       readOnly
-                      className="bg-muted/40"
+                      className="bg-muted/40 text-sm"
                     />
                   ) : (
                     <BindingPrompt
@@ -335,7 +342,7 @@ export function ProfileSettings({
                 </Field>
                 <Button
                   type="submit"
-                  className="px-8"
+                  className="px-8 text-sm"
                   disabled={isSavingProfile}
                 >
                   {isSavingProfile && (
@@ -355,7 +362,7 @@ export function ProfileSettings({
       ) : (
         <Card>
           <CardHeader>
-            <CardTitle>修改密码</CardTitle>
+            <CardTitle className="text-xl">修改密码</CardTitle>
           </CardHeader>
           <CardContent>
             <form onSubmit={changePassword} noValidate>
@@ -390,7 +397,7 @@ export function ProfileSettings({
                 <FieldError>{passwordError}</FieldError>
                 <Button
                   type="submit"
-                  className="px-8"
+                  className="px-8 text-sm"
                   disabled={isSavingPassword}
                 >
                   {isSavingPassword && (
@@ -431,7 +438,7 @@ export function ProfileSettings({
             <form onSubmit={sendBindingCode}>
               <FieldGroup>
                 <Field data-invalid={Boolean(bindingError)}>
-                  <FieldLabel htmlFor="binding-value">
+                  <FieldLabel htmlFor="binding-value" className="text-sm">
                     {bindingType === "email" ? "邮箱" : "手机号"}
                   </FieldLabel>
                   <Input
@@ -444,6 +451,7 @@ export function ProfileSettings({
                         : "name@example.com"
                     }
                     value={bindingValue}
+                    className="text-sm"
                     onChange={(event) => setBindingValue(event.target.value)}
                     aria-invalid={Boolean(bindingError)}
                   />
@@ -466,7 +474,9 @@ export function ProfileSettings({
             <form onSubmit={verifyBindingCode}>
               <FieldGroup>
                 <Field data-invalid={Boolean(bindingError)}>
-                  <FieldLabel htmlFor="binding-code">验证码</FieldLabel>
+                  <FieldLabel htmlFor="binding-code" className="text-sm">
+                    验证码
+                  </FieldLabel>
                   <Input
                     id="binding-code"
                     inputMode="numeric"
@@ -474,6 +484,7 @@ export function ProfileSettings({
                     maxLength={6}
                     placeholder="请输入 6 位验证码"
                     value={bindingCode}
+                    className="text-sm"
                     onChange={(event) =>
                       setBindingCode(event.target.value.replace(/\D/g, ""))
                     }
@@ -557,7 +568,9 @@ function PasswordField({
 }) {
   return (
     <Field>
-      <FieldLabel htmlFor={id}>{label}</FieldLabel>
+      <FieldLabel htmlFor={id} className="text-sm">
+        {label}
+      </FieldLabel>
       <div className="relative">
         <Input
           id={id}
@@ -565,7 +578,7 @@ function PasswordField({
           autoComplete={
             id === "current-password" ? "current-password" : "new-password"
           }
-          className="pr-11"
+          className="pr-11 text-sm"
           placeholder={placeholder}
           value={value}
           onChange={(event) => onChange(event.target.value)}

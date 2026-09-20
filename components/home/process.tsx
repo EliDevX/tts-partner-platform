@@ -41,7 +41,7 @@ const Process = ({className}: ProcessProps) => {
       <div className="container mx-auto items-center px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-6 lg:gap-20 xl:gap-24">
           <div className="col-span-2 h-fit w-full space-y-5 sm:space-y-6 lg:sticky lg:top-10 lg:space-y-7 lg:py-8">
-            <div className="relative w-fit text-4xl font-semibold tracking-tight sm:text-5xl lg:text-7xl">
+            <div className="relative w-fit text-3xl font-semibold tracking-tight sm:text-5xl lg:text-7xl">
               {" "}
               <h1 className="w-fit">服务流程</h1>
               <Asterisk className="absolute -right-3 -top-2 size-5 text-[#1f6feb] sm:-right-5 sm:size-7 lg:-right-14 lg:size-10" />

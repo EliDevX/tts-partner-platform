@@ -170,13 +170,13 @@ export function SignupForm({className, ...props}: React.ComponentProps<"div">) {
       <Card className="overflow-hidden p-0 md:min-h-136">
         <CardContent className="grid h-full p-0 md:grid-cols-2">
           <form
-            className="flex h-full items-center p-6 md:p-10"
+            className="flex h-full items-center p-5 sm:p-6 md:p-10"
             onSubmit={handleSubmit}
             noValidate
           >
             <FieldGroup className="gap-6">
               <div className="flex flex-col items-center gap-2 text-center">
-                <h1 className="text-2xl font-bold">创建您的账户</h1>
+                <h1 className="text-xl font-bold sm:text-2xl">创建您的账户</h1>
                 <p className="text-sm text-balance text-muted-foreground">
                   输入邮箱以创建您的账户
                 </p>
@@ -189,7 +189,7 @@ export function SignupForm({className, ...props}: React.ComponentProps<"div">) {
                   id="company-name"
                   type="text"
                   placeholder="请输入公司或店铺名称"
-                  className="h-10 px-3"
+                  className="h-10 px-3 text-sm"
                   autoComplete="organization"
                   minLength={2}
                   maxLength={80}
@@ -210,7 +210,7 @@ export function SignupForm({className, ...props}: React.ComponentProps<"div">) {
                   id="email"
                   type="email"
                   placeholder="请输入邮箱"
-                  className="h-10 px-3"
+                  className="h-10 px-3 text-sm"
                   autoComplete="email"
                   value={email}
                   aria-invalid={Boolean(error)}
@@ -225,14 +225,14 @@ export function SignupForm({className, ...props}: React.ComponentProps<"div">) {
                 <FieldLabel htmlFor="email-code" className="text-sm">
                   邮箱验证码
                 </FieldLabel>
-                <div className="flex gap-3">
+                <div className="flex flex-col gap-3 sm:flex-row">
                   <Input
                     id="email-code"
                     type="text"
                     inputMode="numeric"
                     autoComplete="one-time-code"
                     placeholder="请输入验证码"
-                    className="h-10 px-3"
+                    className="h-10 px-3 text-sm"
                     maxLength={6}
                     value={verificationCode}
                     aria-invalid={Boolean(error)}
@@ -244,7 +244,7 @@ export function SignupForm({className, ...props}: React.ComponentProps<"div">) {
                   <Button
                     type="button"
                     variant="outline"
-                    className="h-10 shrink-0 px-4"
+                    className="h-10 shrink-0 px-4 text-sm"
                     disabled={isSending || countdown > 0 || isSubmitting}
                     onClick={sendVerificationCode}
                   >
@@ -263,7 +263,7 @@ export function SignupForm({className, ...props}: React.ComponentProps<"div">) {
                 </div>
               </Field>
               <Field>
-                <Field className="grid grid-cols-2 gap-4">
+                <Field className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                   <Field>
                     <FieldLabel htmlFor="password" className="text-sm">
                       密码
@@ -271,7 +271,7 @@ export function SignupForm({className, ...props}: React.ComponentProps<"div">) {
                     <Input
                       id="password"
                       type="password"
-                      className="h-10 px-3"
+                      className="h-10 px-3 text-sm"
                       autoComplete="new-password"
                       value={password}
                       aria-invalid={Boolean(error)}
@@ -286,7 +286,7 @@ export function SignupForm({className, ...props}: React.ComponentProps<"div">) {
                     <Input
                       id="confirm-password"
                       type="password"
-                      className="h-10 px-3"
+                      className="h-10 px-3 text-sm"
                       autoComplete="new-password"
                       value={confirmPassword}
                       aria-invalid={Boolean(error)}
@@ -311,7 +311,11 @@ export function SignupForm({className, ...props}: React.ComponentProps<"div">) {
                 </div>
               )}
               <Field>
-                <Button type="submit" className="h-10" disabled={isSubmitting}>
+                <Button
+                  type="submit"
+                  className="h-10 text-sm"
+                  disabled={isSubmitting}
+                >
                   {isSubmitting && (
                     <LoaderCircle className="animate-spin" aria-hidden="true" />
                   )}
